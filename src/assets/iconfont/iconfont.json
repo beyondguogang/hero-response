@@ -1,0 +1,65 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1336380",
+      "name": "新建",
+      "font_class": "plus-creat",
+      "unicode": "e721",
+      "unicode_decimal": 59169
+    },
+    {
+      "icon_id": "5365783",
+      "name": "查询",
+      "font_class": "chaxun",
+      "unicode": "e7c6",
+      "unicode_decimal": 59334
+    },
+    {
+      "icon_id": "9874467",
+      "name": "KHCFDC_撤销",
+      "font_class": "chexiao",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "15726913",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "16028664",
+      "name": "保存",
+      "font_class": "baocun",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "16271353",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "18674717",
+      "name": "导出",
+      "font_class": "zujian-icon-13",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "19494236",
+      "name": "删 除",
+      "font_class": "shanchu",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    }
+  ]
+}

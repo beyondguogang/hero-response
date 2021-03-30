@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta    HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta    HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+    <meta    HTTP-EQUIV="Expires" CONTENT="0">
+    <title src='img/g.svg'>sdk</title>
+    <link rel="shortcut icon" href="img/g.svg">
+    <link rel="stylesheet" href="css/server-list.css">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="css/item.css" rel="stylesheet">
+    <link href="css/seven.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modify.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/group.css">
+    <link rel="stylesheet" href="css/modify.css">
+    <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="css/server-find-detail.css">
+
+
+    
+</head>
+<body>
+<div id="app" v-cloak>
+    <div style="display: block" >
+        <div style="display: block" v-show="back">
+            <!--内容-->
+            <div class="content clearfix" >
+                <div class="page">
+                    <!--右边栏头部导航-->
+                    <div class="header">
+                        <h5>usdk管理</h5>
+                    </div>
+                    <!-- <div class="content-right-nav">
+                        <span @click="nameChange('name_id'+name.fld_id,$event)" :id="'name_id'+name.fld_id" :nameid="name.fld_id"
+                              v-for="(name,i) in nameList"   :class="`${i>0?'sp2':'sp1'} ${i===nameList.length-1?'sp3':''}`"  >{{name.fld_name}}
+                        </span>
+                    </div> -->
+                    <div>
+                        <div controller="sclc" class="plus "><a   @click="show_dis && add(event)" :style="'pointerEvents:'+pointer+';opacity:'+opacity+';'">
+                            <img src="img/xiaochazi.png" alt="" ></a></div>
+                    </div>
+
+
+                    <!--动态显示查询结果  -->
+                    
+                    <!--显示隐藏-->
+    
+                    <!--数据 头-->
+                   <div class="server-list">
+                       <div class="server-query"><label >productcode:<input autocomplete="off" ref="namevalue" type="text" placeholder="模糊查询请输入productcode"></label></div>
+                       <!-- <div class="server-group"><label >Group:<input autocomplete="off" ref="groupvalue" type="text" placeholder="模糊查询请输入Group"></label></div> -->
+                       <div class="server-btn"><button @click="search">搜索</button></div>
+                        </div>
+                    <div class="data table-responsive">
+
+
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>  
+                                <th class="add" >
+                                    <div>record_id</div>
+                                </th>
+                                <th class="add">
+                                    <div>product_url</div>
+                                </th>
+                                <th class="add" >
+                                    <div>productcode</div>
+                                </th>
+                                
+                                <th class="add" >
+                                    <div>productkey</div>
+                                </th>
+                                <th class="add" >
+                                    <div>操作</div>
+                                </th>
+                            </tr>
+                            
+                            </thead>
+                            <tbody v-if="t_body">
+                                <tr v-for="server in serverList" style="background: #e2e3e5">  
+                                    <td class="add" style="background:white ;width: 40px;">{{server.fld_record_id}}</td>
+                                    <td class="add" style="background:white ">{{server.fld_product_url}}</td>
+                                    <td class="add" style="background:white ">{{server.fld_productcode}}</td>
+                                    <td class="add" style="background:white ">{{server.fld_productkey}}</td>
+                                    <td class="add" style="background:white ">
+                                <!--<a href="#javascript ">详情</a>-->
+                                        <a @click="serverFlag && serverDetail(server)" href="#javascript" :style="{opacity:edit_role}">编辑</a>
+                                        <a @click="serverDelFlag && serverDel(server)" href="#javascript" :style="{opacity:del_role}">删除</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--数据内容 -->
+                    <div class="reset" style="display: none" :style="{display:spring}">
+                        <div class="use-title clearfix" >
+                            <big class="title-t">{{item}}</big>
+                            <div class="use-div">
+                                <img  class="error newly-build1 clearfix" src="img/resizeApi.png" alt="12" @click="cross" >
+                            </div>
+        
+                        </div>
+                        <div class="input-box-group">
+                            <!-- <div class="slected-group"><i>*</i><span>所属项目:<select ref="projectnamen"><option value ="">请选择</option><option v-for="project in projectList" :id="'select-'+project.fld_id" :value ="project.fld_id">{{project.fld_name}}</option></select></span>  </div> -->
+        
+        
+                            <div class="input-three-group"><label for="news2" style="margin-left: 74px;"><i>*</i>product_url:<input  autocomplete="off" ref="projecturl" id="news2" type="text"></label></div>
+                            <div class="input-three-group"> <label for="old1" style="margin-left: 65px;"><i>*</i>productcode:<input  autocomplete="off" ref="projectcode" id="old1" type="text"></label></div>
+                            <div class="input-three-group"> <label for="old1" style="margin-left: 74px;"><i>*</i>productkey:<input  autocomplete="off" ref="projectkey" id="old1" type="text"></label></div>
+                        </div>
+        
+        
+                        <div class="determine-cancel">
+                            <button @click="true_flag && confirm()" class="determine" :style="{opacity:opacity_edit}">确定</button>
+                            <button class="cancel" @click="cross_q">取消</button>
+        
+                        </div>
+                    </div>
+                </div>
+                <!--底部-->
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- 提示框 -->
+    <div class="tips" v-if="show_tips_box">
+        <div class="popup">
+            <p class="content-tips">{{current_state}}</p>
+        </div>
+      </div>
+      <!--表单提示弹框-->
+      <div style="display: none;" class="server-spring-box" v-show="shows">
+        <p class="server-spring-content">{{verification}}</p>
+    </div>
+</div>
+</body>
+</html>
+<script src="node_modules/babel-polyfill/dist/polyfill.js"></script>
+<script src="node_modules/axios/dist/axios.min.js"></script>
+<script src="node_modules/codemirror/lib/codemirror.js"></script>
+<script src="lib/browser.min.js" ></script>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="js/config.js"></script>
+<script type="text/babel" src="js/serverList.js?v=2"></script>
+
+
+
